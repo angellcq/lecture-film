@@ -1,0 +1,100 @@
+{
+  "name": "化学 · 弱酸滴定强碱",
+  "workdir": "chem_demo",
+  "outDir": "pipeline/out/chem_demo",
+  "html": "film.html",
+  "duration": 12,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "encode": {
+    "preset": "veryfast",
+    "crf": 20
+  },
+  "math": [
+    {
+      "kind": "expr",
+      "label": "化学计量点 pH = 7 + ½pKa + ½lgCs ≈ 8.722",
+      "expr": "Integer(round((7 + Rational(1,2)*(-log(18*10**-6,10)) + Rational(1,2)*log(5*10**-2,10))*1000))",
+      "expect": "8722"
+    },
+    {
+      "kind": "expr",
+      "label": "半等当点 pH = pKa ≈ 4.745",
+      "expr": "Integer(round((-log(18*10**-6,10))*1000))",
+      "expect": "4745"
+    },
+    {
+      "kind": "balance",
+      "label": "醋酸 + 氢氧化钠",
+      "formula": "CH3COOH + NaOH -> CH3COONa + H2O",
+      "expect": "1,1,1,1"
+    },
+    {
+      "kind": "balance",
+      "label": "碳酸钠 + 盐酸",
+      "formula": "Na2CO3 + HCl -> NaCl + H2O + CO2",
+      "expect": "1,2,2,1,1"
+    },
+    {
+      "kind": "dimensions",
+      "label": "物质的量 n = c·V 是摩尔",
+      "formula": "c*V",
+      "units": {
+        "c": "mol/m**3",
+        "V": "m**3"
+      },
+      "values": {
+        "c": 100,
+        "V": 0.025
+      },
+      "expect": "mol"
+    }
+  ],
+  "voice": {
+    "words": "vo/narration.words.json",
+    "wav": "vo/narration.mp3",
+    "command": "run_voice.bat"
+  },
+  "bgm": {
+    "wav": "bgm/bed.mp3",
+    "gainDb": -16
+  },
+  "captions": {
+    "maxChars": 22,
+    "font": "Microsoft YaHei"
+  },
+  "sim": {
+    "script": "sim/titrate.py",
+    "out": "sim.json"
+  },
+  "speech": {
+    "text": "script.txt",
+    "map": {
+      "→": "生成",
+      "°": "度",
+      "²": "的平方",
+      "³": "的立方",
+      "↑": "气体逸出",
+      "↓": "沉淀",
+      "⇌": "可逆"
+    }
+  },
+  "stage": {
+    "ignore": [
+      "kit.js"
+    ]
+  },
+  "eac": {
+    "projectId": "57ca41bc-d5af-4e81-9a22-71e8d00a4245",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": [
+      "jianying",
+      "srt",
+      "lut"
+    ]
+  }
+}

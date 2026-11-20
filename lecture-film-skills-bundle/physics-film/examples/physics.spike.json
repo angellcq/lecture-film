@@ -1,0 +1,21 @@
+{
+  "name": "物理视频流水线 · spike（three + anime + ammo）",
+  "workdir": "physics_film",
+  "outDir": "pipeline/out/physics_spike",
+  "html": "spike.html",
+  "duration": 8,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "stage": {
+    "note": "画面源码自带 renderAt(t)；物理用固定步长 1/120s 积分，后退 seek 会从 0 重放"
+  },
+  "eac": {
+    "projectId": "57e7ddbf-761f-4454-8f44-28faf985dcc2",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": ["srt"]
+  }
+}

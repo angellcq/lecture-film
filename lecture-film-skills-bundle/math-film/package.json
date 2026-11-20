@@ -1,0 +1,29 @@
+{
+  "name": "math-film",
+  "version": "1.0.0",
+  "description": "数学题讲解视频流水线（lecture-film 数学分支）：算式 sympy 校验 + 豆包TTS + 句级字幕 + EAC/dsh-motion 双画面引擎 + BGM 闪避混音 + 烧字幕 + 剪映草稿导出",
+  "keywords": [
+    "dsh-skill",
+    "math",
+    "video",
+    "education",
+    "lecture-film",
+    "eac",
+    "dsh-motion"
+  ],
+  "license": "MIT",
+  "author": "luchunqing",
+  "skill": {
+    "name": "math-film",
+    "triggers": [
+      "数学题讲解视频",
+      "几何题讲解",
+      "阴影面积",
+      "把这道数学题做成视频",
+      "出一版数学讲解片",
+      "数学教学片",
+      "立体几何",
+      "数学动画"
+    ]
+  }
+}

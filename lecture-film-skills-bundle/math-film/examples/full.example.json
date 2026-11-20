@@ -1,0 +1,65 @@
+{
+  "name": "第20题 · 片头动效 + 板书主体 + 演算小窗（三合一）",
+  "outDir": "pipeline/out/full",
+  "workdir": ".",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "encode": {
+    "preset": "veryfast",
+    "crf": 20
+  },
+  "motion": {
+    "dir": "motion",
+    "chromium": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+  },
+  "eac": {
+    "projectId": "d0419724-9eec-4240-83cb-7d055dcc482e",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": [
+      "jianying",
+      "srt",
+      "lut"
+    ]
+  },
+  "voice": {
+    "words": "bauhaus_q20/vo/narration.words.json"
+  },
+  "captions": {
+    "maxChars": 22,
+    "font": "Microsoft YaHei",
+    "offsetSec": 3
+  },
+  "segments": [
+    {
+      "name": "intro",
+      "engine": "dsh-motion",
+      "from": 0,
+      "duration": 3
+    },
+    {
+      "name": "body",
+      "engine": "eac",
+      "html": "bauhaus_q20/film.html",
+      "from": 0,
+      "duration": 226.42,
+      "audio": "bauhaus_q20/mix_bgm.wav",
+      "audioFrom": 0,
+      "overlay": {
+        "source": "pipeline/out/hybrid/segments/intro.mp4",
+        "x": 1360,
+        "y": 64,
+        "w": 480,
+        "h": 270,
+        "border": 8,
+        "radius": 22,
+        "opacity": 0.98,
+        "from": 20,
+        "duration": 60
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "第20题 · 阴影面积 · 几何包豪斯",
+  "workdir": "bauhaus_q20",
+  "outDir": "pipeline/out/q20",
+  "html": "film.html",
+  "duration": 226.42,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "encode": {
+    "preset": "veryfast",
+    "crf": 20
+  },
+  "voice": {
+    "words": "vo/narration.words.json",
+    "wav": "vo/narration.mp3"
+  },
+  "bgm": {
+    "wav": "bgm/scifi2_eq.wav",
+    "gainDb": -13,
+    "script": "bgm_mix.py",
+    "scriptOutput": "mix_bgm.wav"
+  },
+  "captions": {
+    "maxChars": 22,
+    "font": "Microsoft YaHei"
+  },
+  "eac": {
+    "projectId": "d0419724-9eec-4240-83cb-7d055dcc482e",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": [
+      "jianying",
+      "srt",
+      "lut"
+    ]
+  },
+  "math": [
+    {
+      "label": "半径6的圆面积 36π",
+      "expr": "pi*6**2",
+      "expect": "36*pi"
+    },
+    {
+      "label": "45°扇形 = 1/8 圆 = 9π/2",
+      "expr": "pi*6**2/8",
+      "expect": "Rational(9,2)*pi"
+    },
+    {
+      "label": "等腰直角三角形直角边 = 3√2",
+      "expr": "sqrt(Rational(6**2,2))",
+      "expect": "3*sqrt(2)"
+    },
+    {
+      "label": "三角形 ACD 面积 = 9",
+      "expr": "Rational(1,2)*(3*sqrt(2))**2",
+      "expect": "9"
+    },
+    {
+      "label": "阴影 = 9π/2 − 9 = 9(π/2−1) ≈ 5.14",
+      "expr": "Rational(9,2)*pi - 9",
+      "expect": "9*(pi/2-1)"
+    },
+    {
+      "label": "数值核对：9(π/2−1) 保留两位 = 5.14",
+      "expr": "round(N(9*(pi/2-1))*100)",
+      "expect": "514"
+    }
+  ]
+}

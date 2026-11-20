@@ -1,0 +1,29 @@
+{
+  "name": "chem-film",
+  "version": "1.0.0",
+  "description": "化学讲解视频流水线（lecture-film 化学分支）：配平校验 + 结构式生成 + 豆包TTS + 化学图元库 + EAC 逐帧渲染 + 混音 + 烧字幕 + 剪映草稿导出",
+  "keywords": [
+    "dsh-skill",
+    "chemistry",
+    "video",
+    "education",
+    "lecture-film",
+    "titration",
+    "rdkit",
+    "eac"
+  ],
+  "license": "MIT",
+  "author": "luchunqing",
+  "skill": {
+    "name": "chem-film",
+    "triggers": [
+      "化学题讲解视频",
+      "化学实验动画",
+      "酸碱滴定",
+      "化学方程式配平",
+      "分子结构",
+      "化学教学片",
+      "化学动画"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "name": "物理 · 斜面滑块匀加速",
+  "workdir": "physics_demo",
+  "outDir": "pipeline/out/physics_demo",
+  "html": "film.html",
+  "duration": 12,
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "encode": {
+    "preset": "veryfast",
+    "crf": 20
+  },
+  "math": [
+    {
+      "kind": "expr",
+      "label": "加速度 a = g(sin30° − μcos30°)",
+      "expr": "Rational(98,10)*(Rational(1,2) - Rational(1,10)*sqrt(3)/2)",
+      "expect": "Rational(49,10) - Rational(49,100)*sqrt(3)"
+    },
+    {
+      "kind": "expr",
+      "label": "末速度 v = a·t (t=3s)",
+      "expr": "3*(Rational(49,10) - Rational(49,100)*sqrt(3))",
+      "expect": "Rational(147,10) - Rational(147,100)*sqrt(3)"
+    },
+    {
+      "kind": "dimensions",
+      "label": "位移 s = ½at² 是长度",
+      "formula": "a*t**2/2",
+      "units": {
+        "a": "m/s**2",
+        "t": "s"
+      },
+      "values": {
+        "a": 4.05,
+        "t": 3
+      },
+      "expect": "m"
+    },
+    {
+      "kind": "dimensions",
+      "label": "速度 v = at 是速度",
+      "formula": "a*t",
+      "units": {
+        "a": "m/s**2",
+        "t": "s"
+      },
+      "values": {
+        "a": 4.05,
+        "t": 3
+      },
+      "expect": "m/s"
+    },
+    {
+      "kind": "dimensions",
+      "label": "重力 mg 是力",
+      "formula": "m*g",
+      "units": {
+        "m": "kg",
+        "g": "m/s**2"
+      },
+      "values": {
+        "m": 2,
+        "g": 9.8
+      },
+      "expect": "kg*m/s**2"
+    }
+  ],
+  "voice": {
+    "words": "vo/narration.words.json",
+    "wav": "vo/narration.mp3",
+    "command": "run_voice.bat"
+  },
+  "bgm": {
+    "wav": "bgm/bed.mp3",
+    "gainDb": -12
+  },
+  "captions": {
+    "maxChars": 22,
+    "font": "Microsoft YaHei"
+  },
+  "sim": {
+    "script": "sim/block.py",
+    "out": "sim.json"
+  },
+  "speech": {
+    "text": "script.txt",
+    "map": {
+      "°": "度",
+      "θ": "西塔",
+      "μ": "缪",
+      "≈": "约等于",
+      "²": "的平方",
+      "½": "二分之一",
+      "·": "乘以",
+      "−": "减去"
+    }
+  },
+  "stage": {
+    "ignore": [
+      "kit.js"
+    ]
+  },
+  "eac": {
+    "projectId": "316972d8-d84c-477b-9ea7-2ebaf27b7e7b",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": [
+      "jianying",
+      "srt",
+      "lut"
+    ]
+  }
+}

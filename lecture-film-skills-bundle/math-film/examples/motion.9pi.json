@@ -1,0 +1,36 @@
+{
+  "name": "9π 从哪来（dsh-motion 引擎）",
+  "engine": "dsh-motion",
+  "workdir": ".",
+  "outDir": "pipeline/out/motion9pi",
+  "motion": {
+    "dir": "motion",
+    "chromium": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+  },
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
+  "encode": {
+    "preset": "veryfast",
+    "crf": 20
+  },
+  "eac": {
+    "projectId": "d0419724-9eec-4240-83cb-7d055dcc482e",
+    "templateId": "09-bauhaus",
+    "scale": 1,
+    "targets": [
+      "jianying",
+      "srt",
+      "lut"
+    ]
+  },
+  "math": [
+    {
+      "label": "四分之一圆 r=6 → 9π",
+      "expr": "pi*6**2/4",
+      "expect": "9*pi"
+    }
+  ]
+}
